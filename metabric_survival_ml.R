@@ -78,7 +78,7 @@ df_clinical_1 %>%
 #check the distribution of some numerical attributes:age at diagnosis,mutation_count, nottingham_prognostic_index,overall_survival_months, tumor size, lymph_nodes_examined_positive
 head(df_clinical)
 str(df_clinical)
-
+dim(df_clinical)
 # Reshape to long format for plotting
 
 df_clinical_long <- melt(df_clinical,
