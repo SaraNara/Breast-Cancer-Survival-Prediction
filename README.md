@@ -1,4 +1,4 @@
-## Title: Breast Cancer Survival & ML Analysis
+## Title: Breast Cancer Survival Analaysis & ML prediction
 
 ## Subtitle: Integrative Survival Prediction in Breast Cancer Using Clinical and Gene Expression Data with Random Forest Machine Learning (Kaggle - METABRIC)
 
