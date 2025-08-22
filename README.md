@@ -43,7 +43,7 @@ Breast-Cancer-Survival-Prediction/
 
 Clone the repository:
 
-git clone https://github.com/SaraNara/Breast-Cancer-Survival-Prediction.git
+git clone https://github.com/SaranyaNarayana/Breast-Cancer-Survival-Analysis-and-ML-Prediction.git
 
 cd Breast-Cancer-Survival-Prediction
 
