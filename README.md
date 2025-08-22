@@ -34,7 +34,6 @@ Breast-Cancer-Survival-Prediction/
 ## Requirements
 - R >= 4.0
 - Packages:
-  ```r
  glmnet, survival, survminer, dplyr, readr, stringr, ggplot2, reshape2,
   randomForest, caret, pROC
 
@@ -71,6 +70,6 @@ Binary variables are converted to factors where necessary for modeling.
 
 Ensure all required R packages are installed before running the script.
 
-Author
+# Author
 Saranya Narayana
 Ph.D. in Quantitative Genetics and Epidemiology
