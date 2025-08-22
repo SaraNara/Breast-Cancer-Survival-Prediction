@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 set -e
 
-echo "🔄 Updating Ubuntu..."
+echo "Updating Ubuntu..."
 sudo apt update && sudo apt upgrade -y
 
 echo "📦 Installing system dependencies for R packages..."
@@ -17,12 +17,12 @@ librsvg2-dev libgeos-dev libproj-dev libgdal-dev \
 ffmpeg libpoppler-cpp-dev tesseract-ocr libtesseract-dev \
 imagemagick libmagick++-dev
 
-echo "✅ System libraries installed."
+echo "System libraries installed."
 
-echo "📦 Installing pak (for fast parallel R installs)..."
+echo "Installing pak (for fast parallel R installs)..."
 Rscript -e 'install.packages("pak", repos="https://cloud.r-project.org")'
 
-echo "📦 Installing common R packages..."
+echo "Installing common R packages..."
 Rscript -e 'pak::pak(c(
   "tidyverse", "data.table", "MatrixModels", "quantreg", "car", "alr4",
   "rio", "caret", "glmnet", "lme4", "nlme", "survival",
@@ -31,6 +31,6 @@ Rscript -e 'pak::pak(c(
   "plotly", "RColorBrewer", "ggthemes", "devtools", "remotes"
 ))'
 
-echo "🎉 R environment setup complete!"
+echo "R environment setup complete!"
 
 
