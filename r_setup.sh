@@ -4,7 +4,7 @@ set -e
 echo "Updating Ubuntu..."
 sudo apt update && sudo apt upgrade -y
 
-echo "📦 Installing system dependencies for R packages..."
+echo "Installing system dependencies for R packages..."
 sudo apt install -y \
 build-essential cmake gfortran r-base-dev cargo \
 libcurl4-openssl-dev libssl-dev libxml2-dev libgit2-dev \
