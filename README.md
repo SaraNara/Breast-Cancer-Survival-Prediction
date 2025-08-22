@@ -1,4 +1,6 @@
-# Breast Cancer Survival Prediction
+## Title: Breast Cancer Survival & ML Analysis
+
+##Subtitle: Integrative Survival Prediction in Breast Cancer Using Clinical and Gene Expression Data with Random Forest Machine Learning (Kaggle - METABRIC)
 
 ## Project Overview
 This project aims to predict overall survival in breast cancer patients by integrating **clinical attributes** and **gene expression data** using statistical modeling and machine learning approaches. The analysis uses the **METABRIC dataset** (Kaggle) to explore risk factors and develop predictive models.
