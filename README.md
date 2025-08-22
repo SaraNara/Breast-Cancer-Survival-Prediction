@@ -72,4 +72,4 @@ Ensure all required R packages are installed before running the script.
 
 # Author
 Saranya Narayana
-Ph.D. in Quantitative Genetics and Epidemiology
+(Ph.D. in Quantitative Genetics and Epidemiology)
