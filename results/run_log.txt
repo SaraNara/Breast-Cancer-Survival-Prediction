@@ -1,0 +1,202 @@
+===== Analysis Started =====
+Data dimensions: 1904 693 
+column preview:
+Clinical data dimensions: 1904 31 
+Clinical data dimensions: 1904 11 
+
+Missing values per column:
+                   patient_id              overall_survival 
+                            0                             0 
+             age_at_diagnosis                    tumor_size 
+                            0                            20 
+lymph_nodes_examined_positive                  chemotherapy 
+                            0                             0 
+              hormone_therapy                 radio_therapy 
+                            0                             0 
+               mutation_count   nottingham_prognostic_index 
+                           45                             0 
+      overall_survival_months 
+                            0 
+Clinical data dimensions after removing NAs: 1839 11 
+
+Overall survival distribution:
+
+   0    1 
+1075  764 
+
+Overall survival proportions:
+
+        0         1 
+0.5845568 0.4154432 
+
+Overall survival by chemotherapy:
+   
+             0          1
+  0 0.47362697 0.11092985
+  1 0.32082654 0.09461664
+
+Overall survival by all therapies:
+`summarise()` has grouped output by 'overall_survival', 'chemotherapy',
+'hormone_therapy'. You can override using the `.groups` argument.
+# A tibble: 16 × 6
+# Groups:   overall_survival, chemotherapy, hormone_therapy [8]
+   overall_survival chemotherapy hormone_therapy radio_therapy count  prop
+   <fct>                   <int>           <int>         <int> <int> <dbl>
+ 1 0                           0               0             0   176 0.618
+ 2 0                           0               0             1   109 0.382
+ 3 0                           0               1             0   263 0.449
+ 4 0                           0               1             1   323 0.551
+ 5 0                           1               0             0    27 0.235
+ 6 0                           1               0             1    88 0.765
+ 7 0                           1               1             0    18 0.202
+ 8 0                           1               1             1    71 0.798
+ 9 1                           0               0             0   103 0.466
+10 1                           0               0             1   118 0.534
+11 1                           0               1             0   128 0.347
+12 1                           0               1             1   241 0.653
+13 1                           1               0             0    16 0.178
+14 1                           1               0             1    74 0.822
+15 1                           1               1             0     9 0.107
+16 1                           1               1             1    75 0.893
+Density plot saved.
+
+correlation of clinical attributes with overall_survival:
+             age_at_diagnosis                    tumor_size 
+                  -0.30607222                   -0.15817627 
+lymph_nodes_examined_positive                  chemotherapy 
+                  -0.16117506                    0.04631793 
+              hormone_therapy                 radio_therapy 
+                  -0.03539320                    0.11572184 
+               mutation_count   nottingham_prognostic_index 
+                  -0.07568484                   -0.13598076 
+      overall_survival_months 
+                   0.39215628 
+df_complete data dimensions: 1839 9 
+
+Cox Model Summary:
+Call:
+coxph(formula = surv_obj ~ age_at_diagnosis + tumor_size + lymph_nodes_examined_positive + 
+    chemotherapy + hormone_therapy + radio_therapy, data = df_complete)
+
+  n= 1839, number of events= 1075 
+
+                                   coef exp(coef)  se(coef)      z Pr(>|z|)    
+age_at_diagnosis               0.041127  1.041985  0.003033 13.561  < 2e-16 ***
+tumor_size                     0.009091  1.009132  0.001658  5.483 4.18e-08 ***
+lymph_nodes_examined_positive  0.054422  1.055930  0.006021  9.039  < 2e-16 ***
+chemotherapy1                  0.572593  1.772858  0.095843  5.974 2.31e-09 ***
+hormone_therapy1               0.001258  1.001259  0.068152  0.018  0.98527    
+radio_therapy1                -0.214670  0.806808  0.064956 -3.305  0.00095 ***
+---
+Signif. codes:  0 ‘***’ 0.001 ‘**’ 0.01 ‘*’ 0.05 ‘.’ 0.1 ‘ ’ 1
+
+                              exp(coef) exp(-coef) lower .95 upper .95
+age_at_diagnosis                 1.0420     0.9597    1.0358    1.0482
+tumor_size                       1.0091     0.9910    1.0059    1.0124
+lymph_nodes_examined_positive    1.0559     0.9470    1.0435    1.0685
+chemotherapy1                    1.7729     0.5641    1.4692    2.1392
+hormone_therapy1                 1.0013     0.9987    0.8761    1.1443
+radio_therapy1                   0.8068     1.2395    0.7104    0.9163
+
+Concordance= 0.654  (se = 0.009 )
+Likelihood ratio test= 365.7  on 6 df,   p=<2e-16
+Wald test            = 399.5  on 6 df,   p=<2e-16
+Score (logrank) test = 414.3  on 6 df,   p=<2e-16
+
+KM plot saved.
+KM risk group plot saved.
+Gene expression data dimensions: 1839 11 
+
+Random Forest Model:
+
+Call:
+ randomForest(x = X_train, y = y_train, ntree = 500, importance = TRUE) 
+               Type of random forest: classification
+                     Number of trees: 500
+No. of variables tried at each split: 25
+
+        OOB estimate of  error rate: 33.54%
+Confusion matrix:
+    0   1 class.error
+0 215 320   0.5981308
+1 112 641   0.1487384
+
+Confusion Matrix:
+Confusion Matrix and Statistics
+
+          Reference
+Prediction   0   1
+         0  91  48
+         1 138 274
+                                          
+               Accuracy : 0.6624          
+                 95% CI : (0.6212, 0.7019)
+    No Information Rate : 0.5844          
+    P-Value [Acc > NIR] : 0.0001027       
+                                          
+                  Kappa : 0.2633          
+                                          
+ Mcnemar's Test P-Value : 6.764e-11       
+                                          
+            Sensitivity : 0.8509          
+            Specificity : 0.3974          
+         Pos Pred Value : 0.6650          
+         Neg Pred Value : 0.6547          
+             Prevalence : 0.5844          
+         Detection Rate : 0.4973          
+   Detection Prevalence : 0.7477          
+      Balanced Accuracy : 0.6242          
+                                          
+       'Positive' Class : 1               
+                                          
+
+AUC = 0.7283558 
+Scale for x is already present.
+Adding another scale for x, which will replace the existing scale.
+ROC plot saved.
+
+Top 20 Important Variables:
+                                                   Variable       MDA
+age_at_diagnosis                           age_at_diagnosis 12.482793
+tumor_size                                       tumor_size  6.593573
+kit                                                     kit  4.807864
+hsd17b11                                           hsd17b11  4.574683
+casp8                                                 casp8  4.492749
+jak1                                                   jak1  4.102809
+acvr1                                                 acvr1  4.050761
+gata3_mut                                         gata3_mut  3.793421
+spry2                                                 spry2  3.611769
+runx1                                                 runx1  3.537648
+pdgfra                                               pdgfra  3.391469
+lama2                                                 lama2  3.342804
+wfdc2                                                 wfdc2  3.116304
+lymph_nodes_examined_positive lymph_nodes_examined_positive  3.113716
+gps2                                                   gps2  2.839685
+tnk2                                                   tnk2  2.813845
+sf3b1                                                 sf3b1  2.771567
+tsc2                                                   tsc2  2.761318
+igf1                                                   igf1  2.729362
+cdkn2b                                               cdkn2b  2.715889
+                                    Gini
+age_at_diagnosis              12.6183794
+tumor_size                     4.7210510
+kit                            3.1469006
+hsd17b11                       2.7344458
+casp8                          3.3881568
+jak1                           3.2231981
+acvr1                          1.0585550
+gata3_mut                      1.1212521
+spry2                          1.7996439
+runx1                          1.8252056
+pdgfra                         1.7439557
+lama2                          1.6901994
+wfdc2                          1.2133142
+lymph_nodes_examined_positive  2.1755259
+gps2                           0.9998178
+tnk2                           2.3871862
+sf3b1                          1.4812206
+tsc2                           1.6836401
+igf1                           1.6816243
+cdkn2b                         1.1517104
+Top 20 variable plot saved.
+===== Analysis Finished =====
