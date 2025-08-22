@@ -1,6 +1,6 @@
 # ============================================================
 # Author:  Saranya Narayana
-# Project: Breast Cancer Survival & ML Analysis:Integrative Survival Prediction in Breast Cancer Using Clinical and Gene Expression Data with Random Forest Machine Learning (Kaggle - METABRIC)
+# Project: Breast Cancer Survival & ML Analysis: Integrative Survival Prediction in Breast Cancer Using Clinical and Gene Expression Data with Random Forest Machine Learning (Kaggle - METABRIC)
 # Date:   2025-08-19
 # Purpose: Perform survival analysis using clinical and gene expression data from METABRIC dataset
 #         using Random Forest classifier for prediction.
@@ -45,7 +45,7 @@ if(!dir.exists("results")) dir.create("results")
 #-----------------------------------
 # Logging
 #-----------------------------------
-log_file <- "/home/sara/Proj_2_BC/results/run_log.txt"
+log_file <- "/results/run_log.txt"
 
 # Open connection for logging both stdout and messages
 log_con <- file(log_file, open = "wt")
@@ -57,7 +57,7 @@ cat("===== Analysis Started =====\n")
 #-----------------------------------
 # STEP 1: Load Data
 #-----------------------------------
-df <- read.csv("/home/sara/Proj_2_BC/data/METABRIC_RNA_Mutation.csv", sep=",", header=TRUE)
+df <- read.csv("/data/METABRIC_RNA_Mutation.csv", sep=",", header=TRUE)
 cat("Data dimensions:", dim(df), "\n")
 cat("column preview:\n")
 head(df[, 1:10])  # Display first 10 columns
