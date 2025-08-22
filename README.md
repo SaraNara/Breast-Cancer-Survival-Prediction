@@ -73,6 +73,19 @@ Binary variables are converted to factors where necessary for modeling.
 
 Ensure all required R packages are installed before running the script.
 
+# References
+
+https://pubmed.ncbi.nlm.nih.gov/37370847/
+
+https://pubmed.ncbi.nlm.nih.gov/33681976/
+
+https://www.researchgate.net/publication/377025287_Breast_Cancer_Detection_using_Machine_Learning_Algorithms
+
+https://pmc.ncbi.nlm.nih.gov/articles/PMC11152379/
+
+
+
+
 # Author
 Saranya Narayana
 (Ph.D. in Quantitative Genetics and Epidemiology)
