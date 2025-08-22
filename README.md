@@ -45,7 +45,7 @@ Clone the repository:
 
 git clone https://github.com/SaranyaNarayana/Breast-Cancer-Survival-Analysis-and-ML-Prediction.git
 
-cd Breast-Cancer-Survival-Prediction
+cd Breast-Cancer-Survival-Analysis-and-ML-Prediction
 
 
 Place the METABRIC dataset CSV file in the data/ folder.
