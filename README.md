@@ -19,7 +19,7 @@ This project aims to predict overall survival in breast cancer patients by integ
 ---
 
 ## Data
-- **Source:** [METABRIC Breast Cancer Dataset on Kaggle](https://www.kaggle.com/datasets)
+- **Source:** [METABRIC Breast Cancer Dataset on Kaggle](https://www.kaggle.com/datasets/gunesevitan/breast-cancer-metabric)
 - **Clinical Attributes:** Age at diagnosis, tumor size, lymph nodes, treatment variables, survival outcome.
 - **Gene Expression:** RNA-seq data with multiple gene features.
 ---
